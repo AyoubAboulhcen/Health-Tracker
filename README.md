@@ -27,6 +27,6 @@ Make sure Python is installed, then run:
 python health_track.py
 
 ## Version 2 — coming after Python Essentials 2
-- Food and calorie tracker
+- weight , sleep and food calories  tracker
 - Save daily data with dates
-- Charts for weight, calories, and sleep progress
+- create Charts for weight, calories, and sleep progress
