@@ -1,32 +1,40 @@
 # HealthTrack 
 
-HealthTrack is a project I built from scratch starting from day one of 
+HealthTrack is a project I built from scratch starting from day one of
 learning Python through the Cisco Python Essentials course by Cisco.
 Every new concept I learned, I applied directly to this project.
-It helped me understand Python faster than any exercise could.
+It helped me understand Python faster than any exercises could.
 
-This is version 1 , it is not perfect, but it is real and it works.
+This is not a tutorial project. It was built concept by concept, mistake by mistake.
 
-## What version 1 does
-- Asks for your name and greets you personally
-- Collects your height, weight, age, sex, and training frequency
-- Calculates your BMI and validates the result
-- Calculates your BMR (Basal Metabolic Rate)
-- Suggests a daily calorie target based on your BMI
-- Shows your ideal weight range
-- Displays a full personal summary
+## Version History
+- Version 1.0 — Procedural structure with functions
+- Version 1.5 — Refactored to full Object Oriented Programming (OOP)
+
+## What it does
+- Collects name, height, weight, age, and gender
+- Calculates BMI and validates the result
+- Calculates BMR (Basal Metabolic Rate)
+- Suggests a daily calorie target based on BMI category
+- Shows ideal weight range
+- Displays a full personal health summary
 
 ## What I learned building this
 - Functions, parameters, and return values
 - Input validation using loops and try/except
 - Breaking a complex program into small focused pieces
-- How to connect multiple functions into one working program
+- Object Oriented Programming — classes, methods, constructors
 
 ## How to run
 Make sure Python is installed, then run:
 python health_track.py
 
-## Version 2 — coming after Python Essentials 2
-- weight , sleep and food calories  tracker
-- Save daily data with dates
-- create Charts for weight, calories, and sleep progress
+## Coming in Version 2
+- Food and calorie tracker with a CSV food database
+- Daily weight and sleep tracking
+- Save data with dates so progress is remembered
+- Charts for weight, calories, and sleep progress
+
+## Note
+This is a learning project built during Python Essentials 1 and 2.
+Version 2 coming after completing Python Essentials 2. the real tracker programme
