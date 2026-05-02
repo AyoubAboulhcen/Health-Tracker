@@ -9,28 +9,43 @@ class User :
         self.bmi = 0
         self.gender = 0
         self.bmr = 0
-    def data_taken(self):
-        self.name = input("how can i call you plz")
+
+    def bmi_data(self):
+        # Method to handle BMI , height, weight, and age
         while True:
-            self.height = int(input("tell me about your height in cm"))
-            self.weight = int(input("tell me about your weight in kg"))
-            self.age = int(input("tell me about your age in years"))
-            self.bmi = self.weight / ((self.height/100)** 2)
-            if  self.bmi < 10 or self.bmi > 60:
-                print ("sorry there is a problem with your data")
-            else :
-                break
+            try:
+                user_height = (input("tell me about your height in cm"))
+                user_weight = (input("tell me about your weight in kg"))
+                user_age = (input("tell me about your age in years"))
+                self.height = int("".join([c for c in user_height if c.isdigit()]))
+                self.weight = int("".join([c for c in user_weight if c.isdigit()]))
+                self.age = int("".join([c for c in user_age if c.isdigit()]))
+                self.bmi = self.weight / ((self.height / 100) ** 2)
+                if self.bmi < 10 or self.bmi > 60:
+                    print("sorry there is a problem with your data")
+                else:
+                    break
+            except ValueError:
+                print("Please make sure to include numbers for height, weight, and age.")
+
+    def bmr_data(self):
+        # method to handle gender and bmr
         while True:
-            self.gender = input("tell me about your gender").lower()
-            if not self.gender in ["male","female"]:
-                print ("sorry there is a problem with your data")
-            else :
+            self.gender = input("tell me about your gender").lower().strip()
+            if not self.gender in ["male", "female"]:
+                print("PLZ enter male or female")
+            else:
                 break
         if self.gender in ["male"]:
             self.bmr = (self.weight * 10) + (6.25 * self.height) - (5 * self.age) + 5
         else:
             self.bmr = (self.weight * 10) - (6.25 * self.height) - (5 * self.age) - 161
 
+    def data_taken(self):
+        self.name = input("how can i call you plz")
+        self.bmi_data()
+        self.bmr_data()
+        
     def ideal_weights(self):
         min_weight = 18.5 * ((self.height/100) ** 2)
         max_weight = 24.9 * ((self.height/100) ** 2)
@@ -82,3 +97,4 @@ min_weight,max_weight=user.ideal_weights()
 ibmi=user.introduce_the_bmi()
 plan,calories_needed=user.seggest_plan()
 user.describ_user(ibmi,min_weight,max_weight,plan, calories_needed)
+print()
