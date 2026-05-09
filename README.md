@@ -35,7 +35,7 @@ Make sure Python is installed, then run:
 python health_track.py
 
 ## Coming Soon
-- maybe securing the access 
+- Security: Password protection with hashing using hashlib (in progress) 
 - Visual Analytics: Generating charts and graphs to visualize weight loss and sleep trends over time.
 
 ## Note
