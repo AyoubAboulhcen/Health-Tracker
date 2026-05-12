@@ -32,10 +32,10 @@ v2.0 :SQLite Database integration and Modular file structure.
 
 ## How to run
 Make sure Python is installed, then run:
-python health_track.py
+python __main__.py
 
 ## Coming Soon
-- Security: Password protection with hashing using hashlib (in progress) 
+- Handling errors 
 - Visual Analytics: Generating charts and graphs to visualize weight loss and sleep trends over time.
 
 ## Note
