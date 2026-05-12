@@ -1,6 +1,6 @@
-
 import sqlite3
 import datetime
+import bcrypt
 
 class User ():
 
@@ -9,21 +9,24 @@ class User ():
         pass
 
     def make_personal_file(self):
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
         cu.execute("""CREATE TABLE IF NOT EXISTS personal_information ( 
             First text , 
             Last text , 
             Gender text ,
             Birth_date integer , 
-            Height real 
+            Height real ,
+            Password text
             )""")
         con.commit()
         con.close()
 
     def insert_personal_data(self):
-        con = sqlite3.connect('../user_data.db')
+
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
+
         first = input("what is your first name ").lower()
         last = input("what is your last name ").lower()
         birth_date = input("what is your birth_date  as year/month/day format in numbers ").lower()
@@ -33,17 +36,22 @@ class User ():
 
         while True:
             gender = input("tell me about your gender").lower().strip()
-            if not gender in ["male","female"]:
-                print ("PLZ enter male or female")
-            else :
+            if not gender in ["male", "female"]:
+                print("PLZ enter male or female")
+            else:
                 break
 
-        cu.execute("INSERT INTO personal_information VALUES (:First, :Last, :Gender, :Birth_date, :Height)",
-                   {'First': first, 'Last': last, 'Gender': gender, 'Birth_date': birth_date, 'Height': height})
+        pas = input("what is your password ")
+        pwd = bcrypt.hashpw(pas.encode("utf-8"), bcrypt.gensalt())
+
+        cu.execute("INSERT INTO personal_information VALUES (:First, :Last, :Gender, :Birth_date,:Password , :Height)",
+                   {'First': first, 'Last': last, 'Gender': gender, 'Birth_date': birth_date, 'Password': pwd,
+                    'Height': height})
         con.commit()
         con.close()
 
     def age (self):
+
         con = sqlite3.connect('../user_data.db')
         cu = con.cursor()
 
@@ -60,6 +68,7 @@ class User ():
         return age
 
     def make_health_tracker_file(self):
+
         con = sqlite3.connect('../user_data.db')
         cu = con.cursor()
 
@@ -171,7 +180,6 @@ class User ():
              'Min_Weight': min_weight,
              'Max_Weight': max_weight,
              'Goal': plan})
-
 
         con.commit()
         con.close()

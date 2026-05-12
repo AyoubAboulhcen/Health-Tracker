@@ -1,11 +1,14 @@
 from modules import User
-from check_file import check
-
+from check_file import check_file
+from check_password import chek_the_password
 user = User()
 
-if not check :
+if not check_file :
+        print("hi my new frien let's set up ypu here ")
         user.make_personal_file()
         user.insert_personal_data()
+        print("Account created successfully. Please log in.")
+
 
 age=user.age()
 user.make_health_tracker_file()
