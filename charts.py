@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 import sqlite3
 #print(plt.style.available)
 plt.style.use('ggplot')
-def main_chart ():
+def mains_charts ():
     con = sqlite3.connect('user_data.db')
     cu = con.cursor()
     
@@ -14,25 +14,20 @@ def main_chart ():
     Sleep = [row[2] for row in rows]
     Min_Weight = [row[3] for row in rows]
     Max_Weight = [row[4] for row in rows]
-    print(rows)
-    print(Date)
-    print(Current_Weight)
-    print(Sleep)
-    print(Min_Weight)
-    print(Max_Weight)
 
-    plt.bar(Date, Current_Weight,width=0.5,color='brown', label='Current Weight')
-    plt.plot(Date, Sleep, marker='o', color='blue', label='Sleep')
-
+    plt.plot(Date, Current_Weight,marker =".",color='brown',linewidth=3, label='Current Weight')
+    plt.bar(Date, Sleep, color='grey', label='Sleep')
+    plt.fill_between(Date, Min_Weight, Max_Weight, color='green', alpha=0.5, label='Ideal Weight Range')
     plt.xlabel('Date')
     plt.ylabel('Sleep/Weight')
     plt.title('Health Tracker')
     plt.legend()
+    plt.tight_layout()
     plt.grid(True)
 
     plt.show()
 
-def calories_chart():
+def caloriess_charts():
     con = sqlite3.connect('user_data.db')
     cu = con.cursor()
     
@@ -52,8 +47,4 @@ def calories_chart():
     plt.tight_layout()
     plt.show()
     
-
-#main_chart()
-
-calories_chart()
-
+mains_charts()
