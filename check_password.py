@@ -12,7 +12,7 @@ def chek_the_password():
         stored_password = result[0]
 
         for i in range(3):
-            inpt_pass = input(f" What is the password? ").encode('utf-8')
+            inpt_pass = input(" What is the password? ").encode('utf-8')
 
             if bcrypt.checkpw(inpt_pass, stored_password.encode('utf-8')):
                 print("Login successful!")

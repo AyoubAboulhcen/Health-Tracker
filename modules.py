@@ -15,9 +15,9 @@ class User ():
             First text , 
             Last text , 
             Gender text ,
-            Birth_date integer , 
-            Height real ,
-            Password text
+            Birth_date text , 
+            Password text,
+            Height real 
             )""")
         con.commit()
         con.close()
@@ -36,7 +36,7 @@ class User ():
 
         while True:
             gender = input("tell me about your gender").lower().strip()
-            if not gender in ["male", "female"]:
+            if gender not in ["male", "female"]:
                 print("PLZ enter male or female")
             else:
                 break
@@ -45,14 +45,14 @@ class User ():
         pwd = bcrypt.hashpw(pas.encode("utf-8"), bcrypt.gensalt())
 
         cu.execute("INSERT INTO personal_information VALUES (:First, :Last, :Gender, :Birth_date,:Password , :Height)",
-                   {'First': first, 'Last': last, 'Gender': gender, 'Birth_date': birth_date, 'Password': pwd,
+                   {'First': first, 'Last': last, 'Gender': gender, 'Birth_date': birth_date, 'Password': pwd.decode('utf-8'),
                     'Height': height})
         con.commit()
         con.close()
 
     def age (self):
 
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
 
         cu.execute("SELECT Birth_date FROM personal_information")
@@ -69,7 +69,7 @@ class User ():
 
     def make_health_tracker_file(self):
 
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
 
         cu.execute("""CREATE TABLE IF NOT EXISTS health_tracker (
@@ -97,7 +97,7 @@ class User ():
         return current_weight, sleep, calories_taken
 
     def calcul_bmi (self, current_weight):
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
 
         cu.execute("SELECT Height FROM personal_information")
@@ -113,7 +113,7 @@ class User ():
         return bmi
 
     def calcul_bmr (self, current_weight,age):
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
 
         cu.execute("SELECT Gender, Height FROM personal_information")
@@ -132,7 +132,7 @@ class User ():
         return bmr
 
     def ideal_weights(self):
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
 
         cu.execute("SELECT Height FROM personal_information")
@@ -165,7 +165,7 @@ class User ():
         return plan, calories_needed
 
     def insert_daily_entries (self,age,current_weight, sleep,calories_needed, calories_taken,bmi,bmr, min_weight,max_weight,plan):
-        con = sqlite3.connect('../user_data.db')
+        con = sqlite3.connect('user_data.db')
         cu = con.cursor()
         cu.execute(
             "INSERT INTO health_tracker VALUES (:Date, :Age, :Current_Weight, :Sleep, :Calories_needed, :Calories_taken, :BMI, :BMR, :Min_Weight, :Max_Weight, :Goal)",

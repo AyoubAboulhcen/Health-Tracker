@@ -8,8 +8,8 @@ if not check_file :
         user.make_personal_file()
         user.insert_personal_data()
         print("Account created successfully. Please log in.")
-
-
+else :
+        chek_the_password()
 age=user.age()
 user.make_health_tracker_file()
 current_weight, sleep, calories_taken = user.get_daily_enteries()
