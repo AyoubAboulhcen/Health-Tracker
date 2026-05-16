@@ -1,20 +1,22 @@
+from charts import main_chart , calories_chart
 
-from charts import mains_charts, caloriess_charts
-
-def slt_chart():
+def chart():
     print("what are the charts you want to see ?")
     print(" type 1 for weight progression over time with the ideal healh range ")
-    print(" type 2 for calories taken vs calories needed ")
-    print(" type 3 for your weight cith your sleep ")
-    print (" type 4 for your calories consumed with your sleep")
-    
+    print(" type 2 for calories chart ")
+
+def slt_chart():
+
     value = input()
-
-    if value == "1":
-        mains_charts()
-    elif value == "2" :
-        caloriess_charts()
-    else :
-        print("nothing found")
-
-slt_chart ()
+    for i in range(3):
+         value = input()
+         if value not in ["1","2"]:
+            print("please enter a valid number")
+            value = input()
+         elif value == "1" :
+            main_chart ()
+            
+         elif value == "2" :
+            calories_chart ()
+         
+slt_chart() 
