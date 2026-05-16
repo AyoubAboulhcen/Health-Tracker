@@ -1,5 +1,13 @@
+# Virtual environment folder
 venv/
+
+# Local database
+*.db
+user_data.db
+
+# VS Code configuration
 .vscode/
+
+# Python cache
 __pycache__/
 *.pyc
-xxx.py
