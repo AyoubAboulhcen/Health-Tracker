@@ -1,173 +1,169 @@
-# 🩺 Health Tracker
+# 🏢 US Business Lead Scraper
 
-A command-line health tracking application built with Python that securely stores user health data, calculates BMI and BMR, and tracks daily progress using an SQLite database.
+<p align="center">
+  <strong>Generate clean business leads using Google's official Places API.</strong>
+</p>
 
-> This project demonstrates object-oriented programming, secure authentication, data persistence, and modular application design.
+<p align="center">
 
----
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Google Places API](https://img.shields.io/badge/API-Google%20Places-success)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-blue)
+![OpenPyXL](https://img.shields.io/badge/OpenPyXL-Excel-green)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-## 📌 Overview
-
-Health Tracker is a Python CLI application designed to help users monitor their personal health information over time.
-
-The application allows users to create secure accounts, record daily health metrics, calculate body measurements, and store all information locally using SQLite.
-
-This project focuses on building a complete, well-structured Python application rather than a collection of isolated programming exercises.
-
----
-
-## ✨ Features
-
-### 🔐 Secure Authentication
-
-- Password hashing using **bcrypt**
-- Protection against brute-force login attempts
-- Secure user authentication
-
-### 👤 User Profile Management
-
-- Create personal profiles
-- Store height, birth date, and gender
-- Input validation for user data
-
-### 📊 Health Calculations
-
-Automatically calculates:
-
-- Body Mass Index (BMI)
-- Basal Metabolic Rate (BMR)
-- Healthy weight range
-- Daily calorie recommendations
-
-### 📝 Daily Progress Tracking
-
-Track daily:
-
-- Weight
-- Sleep hours
-- Calorie intake
-
-All records are stored permanently using SQLite.
-
-### 💾 Persistent Storage
-
-- SQLite database
-- Automatic data retrieval
-- Organized database structure
+</p>
 
 ---
 
-# 🛠 Technologies Used
+## 📖 Overview
 
-- Python 3
-- SQLite
-- bcrypt
-- Object-Oriented Programming (OOP)
-- datetime
-- Modular Python Architecture
+Finding business leads manually is time-consuming and inefficient.
+
+This project automates the process by collecting business information directly from the **Google Places API (New)** and exporting clean, structured Excel files ready for sales outreach, CRM systems, or market research.
+
+Unlike traditional web scrapers, this project uses Google's official Places API, making it reliable, scalable, and compliant with Google's Terms of Service.
+
+---
+
+# ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🔍 Business Search | Search any business category |
+| 🌎 Multi-City Support | Search businesses across multiple cities |
+| 📄 Automatic Pagination | Retrieve complete search results |
+| ♻ Duplicate Removal | Remove duplicate businesses automatically |
+| 🔗 URL Cleaning | Remove unnecessary tracking parameters |
+| 📊 Excel Export | Export clean XLSX files |
+| 🔄 Retry Logic | Handle temporary network failures |
+
+---
+
+# 💼 Business Value
+
+This tool helps users:
+
+- Save hours of manual research
+- Generate clean business lead lists
+- Prepare outreach campaigns
+- Build CRM-ready datasets
+- Research local markets
+- Collect verified business information
+
+---
+
+# 📦 Exported Data
+
+Each business record may include:
+
+- Business Name
+- Address
+- Phone Number
+- Website
+- Google Rating
+- Review Count
+
+---
+
+# 🛠 Tech Stack
+
+- Python
+- Google Places API (New)
+- Requests
+- Pandas
+- OpenPyXL
 
 ---
 
 # 📁 Project Structure
 
-```
-Health-Tracker/
-│
-├── src/
-│   ├── __main__.py          # Application entry point
-│   ├── modules.py           # Core application logic
-│   ├── check_file.py        # User profile verification
-│   └── check_password.py    # Authentication system
-│
-├── requirements.txt
+```text
+us-business-lead-scraper/
+
+├── Alabama.py
+├── California.py
+├── debug.py
 ├── README.md
 └── .gitignore
 ```
 
 ---
 
-# 🚀 Getting Started
+# 🚀 Quick Start
 
-## Clone the repository
+Clone the repository
 
 ```bash
-git clone https://github.com/AyoubAboulhcen/Health-Tracker.git
+git clone https://github.com/AyoubAboulhcen/us-business-lead-scraper.git
 ```
 
-## Create a virtual environment
+Install dependencies
 
 ```bash
-python -m venv venv
+pip install requests pandas openpyxl
 ```
 
-## Activate it
+Set your Google Places API key
 
-Windows
-
-```bash
-venv\Scripts\activate
+```text
+GOOGLE_PLACES_API_KEY=your_api_key
 ```
 
-Linux / macOS
+Run the scraper
 
 ```bash
-source venv/bin/activate
+python Alabama.py
 ```
 
-## Install dependencies
+---
 
-```bash
-pip install -r requirements.txt
-```
+# 🔄 Workflow
 
-## Run the application
-
-```bash
-python -m src
+```text
+Business Category
+        │
+        ▼
+Google Places API
+        │
+        ▼
+Automatic Pagination
+        │
+        ▼
+Data Cleaning
+        │
+        ▼
+Duplicate Removal
+        │
+        ▼
+Excel Export
 ```
 
 ---
 
 # 💡 Technical Highlights
 
-This project demonstrates practical experience with:
+This project demonstrates experience with:
 
-- Object-Oriented Programming
-- Modular project organization
-- SQLite database design
-- Secure password hashing
-- Exception handling
-- Input validation
-- Working with dates and time
-- File organization
-- Clean separation of application logic
+- REST API integration
+- JSON data processing
+- Pagination handling
+- Data cleaning
+- Excel report generation
+- Error handling
+- Retry mechanisms
+- Modular Python development
 
 ---
 
-# 📈 Planned Improvements
+# 🔮 Future Improvements
 
-Future versions may include:
-
-- Data visualization using Matplotlib
-- CSV data export
-- Progress charts
-- Goal completion statistics
-- Improved input validation
+- CSV export
+- Multi-state execution
+- Command-line arguments
 - Configuration file support
-
----
-
-# 📷 Screenshots
-
-*Screenshots and demo GIFs will be added in future updates.*
-
----
-
-# 🎯 Purpose
-
-This project was built to practice developing a complete Python application from the ground up.
-
-Instead of solving isolated coding exercises, the goal was to design a maintainable application that combines secure authentication, persistent storage, modular architecture, and health data management into a single project.
+- Logging
+- Parallel requests
 
 ---
 
@@ -177,17 +173,16 @@ This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Ayoub Aboulhcen**
 
-Python Developer focused on:
+Python Developer specializing in:
 
 - Python Automation
 - Data Processing
 - Excel Automation
-- Data Cleaning
-- Desktop & CLI Applications
+- Business Automation
+- API Integration
 
-GitHub:
-https://github.com/AyoubAboulhcen
+GitHub: https://github.com/AyoubAboulhcen
